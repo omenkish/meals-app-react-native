@@ -20,11 +20,15 @@ const MealsNavigator = () => (
           backgroundColor: Platform.OS === 'android' ? Colors.headerColor
           : ''
         },
-        // headerTintColor: Platform.OS === 'android' ? 'white' : ''
+        headerTintColor: Platform.OS === 'android' ? 'white' : ''
       }}
     />
     <Stack.Screen name="MealDetail" component={MealDetailScreen} />
-    <Stack.Screen name="CategoryMeals" component={CategoryMealsScreen} />
+    <Stack.Screen
+      name="CategoryMeals"
+      component={CategoryMealsScreen}
+      options={({ route }) => ({ title: route.params.title })} 
+    />
   </Stack.Navigator>
 );
 
