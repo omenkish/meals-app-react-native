@@ -6,24 +6,23 @@ import MealItem from '../components/MealItem';
 
 const CategoryMeal = props => {
   const catId = props.route.params.id;
-  const { navigate } = props.navigation;
+  // const { navigate } = props.navigation;
 
   const renderMealItem = ({ item }) => {
-    return <MealItem  item={item} handlePress={() => {}}/>;
+    return <MealItem  item={item} handlePress={() => props.navigation.navigate('MealDetail', item)}/>;
   }
 
   const displayedMeals = MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
    return (
     <View style={styles.screen}>
       <FlatList
-        keyExtractor={(item, index) => item.id}
         data={displayedMeals}
         renderItem={renderMealItem}
         style={{width: '100%'}}
       />
       <Button
         title='Go to meal Details'
-        onPress={() => navigate('MealDetail')}
+        onPress={() => navigate('MealDetail', item)}
       />
     </View>);
  };
