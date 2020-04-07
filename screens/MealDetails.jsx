@@ -11,7 +11,7 @@ import CustomHeaderButton from '../components/HeaderButton';
 
   props.navigation.setOptions({
     headerRight:() => (
-      <HeaderButtons HeaderButtonComponent=       {CustomHeaderButton}>
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
           title="Favourite"
           iconName="ios-star"
