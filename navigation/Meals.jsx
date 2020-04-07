@@ -10,9 +10,11 @@ import CategoryMealsScreen from '../screens/CategoryMeals';
 import MealDetailScreen from '../screens/MealDetails';
 import Colors from '../constants/colors';
 import FavouritesScreen from '../screens/Favourites';
+import FiltersScreen from '../screens/Filters';
  
+const Stack = createStackNavigator();
+
 const MealsNavigator = () => {
-  const Stack = createStackNavigator();
   return (
     <Stack.Navigator
       initialRouteName="Categories"
@@ -43,6 +45,32 @@ const MealsNavigator = () => {
   );
 };
 
+const FavouritesNavigator = () => {
+  return (
+    <Stack.Navigator
+      initialRouteName="Favourites"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: Platform.OS === 'android' ? Colors.headerColor
+          : ''
+          },
+          headerTintColor: Platform.OS === 'android' ? 'white' : ''
+      }}
+    >
+      <Stack.Screen
+        name="Favourites"
+        component={FavouritesScreen}
+        options={{ title: 'Your Favourites' }}
+      />
+      <Stack.Screen
+        name="MealDetail"
+        component={MealDetailScreen}
+        options={({ route }) => ({ title: route.params.title })}
+      />
+    </Stack.Navigator>
+  );
+};
+
 const MealsFavTabNavigator = () => {
   const android = Platform.OS === 'android';
   const Tab = android ? createMaterialBottomTabNavigator() : createBottomTabNavigator();
@@ -67,7 +95,7 @@ const MealsFavTabNavigator = () => {
       />
       <Tab.Screen
         name="Favourites"
-        component={FavouritesScreen}
+        component={FavouritesNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name='ios-star' size={25} color={color}/>
