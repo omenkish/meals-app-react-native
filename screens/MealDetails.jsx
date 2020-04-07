@@ -1,10 +1,29 @@
 import React from 'react';
 import { StyleSheet, View, Text} from 'react-native';
+import {
+  HeaderButtons,
+  Item
+} from 'react-navigation-header-buttons';
+
+import CustomHeaderButton from '../components/HeaderButton';
 
  const MealDetails = (props) => {
-   return (<View style={styles.screen}>
-     <Text>{props.route.params.title}</Text>
-   </View>);
+
+  props.navigation.setOptions({
+    headerRight:() => (
+      <HeaderButtons HeaderButtonComponent=       {CustomHeaderButton}>
+        <Item
+          title="Favourite"
+          iconName="ios-star"
+          onPress={() => alert('search')}
+        />
+      </HeaderButtons>
+    ),
+  });
+
+  return (<View style={styles.screen}>
+    <Text>{props.route.params.title}</Text>
+  </View>);
  };
 
  const styles = StyleSheet.create({

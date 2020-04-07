@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     width: '90%',
     backgroundColor: '#f5f5f5',
     marginHorizontal: '5%',
+    marginVertical: 10,
     marginTop: '3%',
     borderRadius: 10,
     overflow: 'hidden'
