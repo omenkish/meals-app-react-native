@@ -48,17 +48,7 @@ const MealsNavigator = () => {
       <Stack.Screen
         name="MealDetail"
         component={MealDetailScreen}
-        options={({ route }) => ({
-          title: route.params.title,
-          headerRight: () => (
-            <HeaderIcon
-              title="Favourite"
-              iconName="ios-star"
-              iconTitle="favourite"
-              handlePress={() => alert('search')}
-            />
-          )
-        })}
+        options={({ route }) => ({ title: route.params.title} )}
       />
       <Stack.Screen
         name="CategoryMeals"
@@ -99,17 +89,7 @@ const FavouritesNavigator = () => {
       <Stack.Screen
         name="MealDetail"
         component={MealDetailScreen}
-        options={({ route }) => ({
-          title: route.params.title,
-          headerRight: () => (
-            <HeaderIcon
-              title="Favourite"
-              iconName="ios-star"
-              iconTitle="favourite"
-              handlePress={() => alert('search')}
-            />
-          )
-        })}
+        options={({ route }) => ({ title: route.params.title} )}
       />
     </Stack.Navigator>
   );

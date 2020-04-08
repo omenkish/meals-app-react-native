@@ -1,7 +1,9 @@
 import React from 'react';
 import { Image, ScrollView, StyleSheet, View, Text} from 'react-native';
+import {HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import DefaultText from '../components/DefaultText';
+import CustomHeaderButton from '../components/HeaderButton';
 
 const ListItem = props => (
   <View style={styles.listItem}>
@@ -9,9 +11,25 @@ const ListItem = props => (
   </View>
 );
 
+const headerIcon = props => (
+  props.navigation.setOptions({
+    headerRight:() => (
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+        <Item
+          title="Favourite"
+          iconName="ios-star"
+          onPress={() => alert('search')}
+        />
+      </HeaderButtons>
+    ),
+  })
+);
+
 const MealDetails = (props) => {
   const { params: item } = props.route; 
  
+  headerIcon(props);
+  // <HeaderIcon navigation={props.navigation}/>;
   return (
     <ScrollView>
       <View style={styles.imageContainer}>
