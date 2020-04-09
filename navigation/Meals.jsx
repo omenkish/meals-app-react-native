@@ -23,9 +23,9 @@ const MealsNavigator = () => {
       screenOptions={{
         headerStyle: {
           backgroundColor: Platform.OS === 'android' ? Colors.primaryColor
-          : ''
+          : 'white'
         },
-        headerTintColor: Platform.OS === 'android' ? 'white' : '',
+        headerTintColor: Platform.OS === 'android' ? 'white' : 'black',
         headerTitleStyle: { fontFamily: 'open-sans-bold'},
         headerBackTitleStyle: { fontFamily: 'open-sans-regular'}
       }}
@@ -66,9 +66,9 @@ const FavouritesNavigator = () => {
       screenOptions={{
         headerStyle: {
           backgroundColor: Platform.OS === 'android' ? Colors.headerColor
-          : ''
+          : 'white'
           },
-          headerTintColor: Platform.OS === 'android' ? 'white' : ''
+          headerTintColor: Platform.OS === 'android' ? 'white' : 'black'
       }}
     >
       <Stack.Screen
@@ -101,9 +101,9 @@ const FiltersNavigator = () => {
       screenOptions={{
         headerStyle: {
           backgroundColor: Platform.OS === 'android' ? Colors.headerColor
-          : ''
+          : 'white'
           },
-          headerTintColor: Platform.OS === 'android' ? 'white' : ''
+          headerTintColor: Platform.OS === 'android' ? 'white' : 'black'
       }}
     >
       <Stack.Screen

@@ -11,14 +11,14 @@ const ListItem = props => (
   </View>
 );
 
-const headerIcon = props => (
+export const headerIcon = (props, handlePress) => (
   props.navigation.setOptions({
     headerRight:() => (
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
           title="Favourite"
           iconName="ios-star"
-          onPress={() => alert('search')}
+          onPress={handlePress}
         />
       </HeaderButtons>
     ),
@@ -28,8 +28,8 @@ const headerIcon = props => (
 const MealDetails = (props) => {
   const { params: item } = props.route; 
  
-  headerIcon(props);
-  // <HeaderIcon navigation={props.navigation}/>;
+  headerIcon(props, () => alert('search'));
+
   return (
     <ScrollView>
       <View style={styles.imageContainer}>
