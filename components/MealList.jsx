@@ -5,7 +5,7 @@ import MealItem from '../components/MealItem';
 
 const MealList = props => {
   const renderMealItem = ({ item }) => {
-    return <MealItem  item={item} handlePress={() => props.navigation.navigate('MealDetail', item)}/>;
+    return <MealItem  item={item} handlePress={() => props.navigation.navigate('MealDetail', {mealId: item.id, title: item.title })}/>;
   };
 
   return (

@@ -32,7 +32,6 @@ const headerIcon = (props, handlePress) => (
 );
 
 const Filters = props => {
-  const { navigation } = props;
 
   const [isGlutenFree, setIsGlutenFree] = useState(false);
   const [isLactoseFree, setIsLactoseFree] = useState(false);

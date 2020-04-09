@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Image, ScrollView, StyleSheet, View, Text} from 'react-native';
 import {HeaderButtons, Item } from 'react-navigation-header-buttons';
 
@@ -26,7 +27,10 @@ export const headerIcon = (props, handlePress) => (
 );
 
 const MealDetails = (props) => {
-  const { params: item } = props.route; 
+  const { mealId } = props.route.params;
+  const meals = useSelector(state => state.meals.meals);
+
+  const item = meals.find(meal => meal.id === mealId);
  
   headerIcon(props, () => alert('search'));
 
