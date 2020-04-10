@@ -4,6 +4,7 @@ import {HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import CustomHeaderButton from '../components/HeaderButton';
 import Colors from '../constants/colors';
+import { SET_FILTERS, setFilters } from '../redux/actions/meals';
 
 const FilterSwitch = props => (
   <View style={styles.filterContainer}>
