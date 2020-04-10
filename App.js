@@ -8,7 +8,7 @@ import { enableScreens } from 'react-native-screens';
 import { Provider } from 'react-redux';
 
 import MealsNavigator from './navigation/Meals';
-import store from './Redux/store';
+import store from './redux/store';
 
 enableScreens();
 

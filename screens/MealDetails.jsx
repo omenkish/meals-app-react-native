@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Image, ScrollView, StyleSheet, View, Text} from 'react-native';
 import {HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import DefaultText from '../components/DefaultText';
 import CustomHeaderButton from '../components/HeaderButton';
+import { toggleFavourite } from '../redux/actions/meals';
 
 const ListItem = props => (
   <View style={styles.listItem}>
@@ -12,13 +13,13 @@ const ListItem = props => (
   </View>
 );
 
-export const headerIcon = (props, handlePress) => (
-  props.navigation.setOptions({
+const headerIcon = (navigation, handlePress, isFavourite) => (
+  navigation.setOptions({
     headerRight:() => (
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
           title="Favourite"
-          iconName="ios-star"
+          iconName={ isFavourite ? "ios-star" : "ios-star-outline"}
           onPress={handlePress}
         />
       </HeaderButtons>
@@ -28,11 +29,19 @@ export const headerIcon = (props, handlePress) => (
 
 const MealDetails = (props) => {
   const { mealId } = props.route.params;
+
   const meals = useSelector(state => state.meals.meals);
+  const mealIsFavourited = useSelector(state => state.meals.favouriteMeals.some(meal => meal.id === mealId));
 
   const item = meals.find(meal => meal.id === mealId);
  
-  headerIcon(props, () => alert('search'));
+  const dispatch = useDispatch();
+
+  const handleToggleFavourite = () => {
+    dispatch(toggleFavourite(mealId))
+  };
+
+  headerIcon(props.navigation, handleToggleFavourite, mealIsFavourited);
 
   return (
     <ScrollView>
